@@ -11,4 +11,13 @@ describe('#Word') do
       expect(@word.term).to(eq('luminous'))
     end
   end
+  describe('save') do
+    it('should save word to class object of words and all should should one word object') do
+      @word.save
+      expect(Word.all).to(eq([@word]))
+    end
+  end
+  # describe('clear') do
+  #   it('should')
+  #   @words
 end
