@@ -20,13 +20,13 @@ describe('add a definition for word ruby', {:type => :feature}) do
     expect(page).to have_content('hot and fiery')
   end
 end
-# describe('add a definition for word ruby', {:type => :feature}) do
-#   it('word page should show definition after adding') do
-#     visit('/home')
-#     click_on("ruby")
-#     fill_in('definition', :with => 'a color that is hot and fiery')
-#     click_on("Add Definition")
-#     expect(page).to have_content('hot and fiery')
-#   end
-# end
+describe('delete a word', {:type => :feature}) do
+  it('delete word and no longer show up on homepage') do
+    visit('/home')
+    click_on("ruby")
+    click_on("Edit/Delete Word")
+    click_on("Delete")
+    expect(page).to have_no_content('ruby')
+  end
+end
 
