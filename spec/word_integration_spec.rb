@@ -28,5 +28,19 @@ describe('delete a word', {:type => :feature}) do
     click_on("Delete")
     expect(page).to have_no_content('ruby')
   end
-end
+end 
+describe('update word', {:type => :feature}) do
+  it('update ruby to red') do
+    visit('/home')
+    fill_in('word', :with => 'ruby')
+    click_on("Add Word")
+    click_on("ruby")
+    click_on("Edit/Delete Word")
+    fill_in("new_term", :with => "red")
+    click_on("Update")
+    expect(page).to have_content('red')
+  end
+end 
+
+
 
