@@ -11,11 +11,12 @@ get('/') do
 end
 
 get('/home') do
+  @words = Word.all
   erb(:home)
 end
 
 post('/home') do
   word = Word.new(:term => params[:word], :id => nil)
   word.save
-  erb(:home)
+  redirect '/home'
 end
