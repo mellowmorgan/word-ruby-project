@@ -28,5 +28,10 @@ describe('#Word') do
     @word.term='luminosity'
       expect(@word.term).to(eq('luminosity'))
     end
+    it('should update word term to luminosity sand save to words object') do
+    @word.term='luminosity'
+    @word.save
+      expect(Word.find(1).term).to(eq('luminosity'))
+    end
   end
 end

@@ -1,10 +1,13 @@
 require 'rspec'
 require 'definition'
+require 'word'
 
 describe('#Definition') do
   before(:each) do
+    Word.clear
     Definition.clear
-    @definition = Definition.new({:def => "to be awe-inspiring", :id => nil})
+    @word = Word.new({:term => "luminous", :id => nil})
+    @definition = Definition.new({:def => "to be awe-inspiring", :word_id => @word.id, :id => nil})
     @definition.save
   end
   describe('#initialize') do
