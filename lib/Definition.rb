@@ -21,4 +21,10 @@ class Definition
   def self.all
     @@definitions.values
   end
+  def self.find(id)
+    @@definitions[id]
+  end
+  # def update
+
+  # end
 end

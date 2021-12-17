@@ -17,5 +17,10 @@ describe('#Definition') do
       expect(Definition.all).to(eq([@definition]))
     end
   end
+  describe('#find') do
+  it('should return object definition when calling find method id 1') do
+    expect(Definition.find(1)).to(eq(@definition))
+  end
+end
 
 end
