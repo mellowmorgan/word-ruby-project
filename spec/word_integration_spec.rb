@@ -42,5 +42,21 @@ describe('update word', {:type => :feature}) do
   end
 end 
 
+describe('update definition', {:type => :feature}) do
+  it('update definition of red') do
+    visit('/home')
+    click_on("red")
+    fill_in("definition", :with => "an object-oriented programming language")
+    click_on("Add definition")
+    # click_on("an object-oriented programming language")
+    # fill_in("new_definition", :with => ("the color of blood")
+    # click_on("Update")
+    # expect(page).to have_content('blood')
+  end
+end 
+
+
+
+
 
 
