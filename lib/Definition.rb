@@ -33,7 +33,7 @@ class Definition
     definitions = []
     @@definitions.values.each do |definition|
       if definition.word_id == given_id
-        definition.push(definition)
+        definitions.push(definition)
       end
     end
     definitions

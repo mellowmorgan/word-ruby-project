@@ -35,5 +35,16 @@ describe('#Definition') do
       @definition.save
       expect(Definition.find(1).def).to(eq("the quality of being luminous"))
     end
+    it('should save updated item to definitions') do
+      @definition.def = "the quality of being luminous"
+      @definition.save
+      expect(Definition.find(1).def).to(eq("the quality of being luminous"))
+    end
+  end
+  describe('#find_by_word') do
+    it('should return array of definitions associated with word_id') do
+      expect(Definition.find_by_word(1)).to(eq([
+      @definition]))
+    end
   end
 end
