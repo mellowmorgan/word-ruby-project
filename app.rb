@@ -62,16 +62,17 @@ get('/word/:word_id/definition/:def_id/update') do
   erb(:definition_update)
 end
 
-# patch('/word/:id/definition/:id/update') do
-#   @word = Word.find(params[:id].to_i)
-#   @word.term = params[:new_term]
-#   @word.save
-#   @definitions =  Definition.find_by_word(params[:id].to_i)
-#   erb(:word)
-# end
+patch('/word/:word_id/definition/:def_id/update') do
+  @definition = Definition.find(params[:def_id].to_i)
+  @definition.def = params[:new_def]
+  @definition.save
+  @word = Word.find(params[:word_id].to_i)
+  @definitions =  Definition.find_by_word(params[:word_id].to_i)
+  erb(:word)
+end
 
-# delete('/word/:id/definition/:id/update') do
-#   @word = Word.find(params[:id].to_i)
-#   @word.delete
-#   redirect '/home'
-# end
+delete('/word/:id/definition/:id/update') do
+  @word = Word.find(params[:id].to_i)
+  @word.delete
+  redirect '/home'
+end
