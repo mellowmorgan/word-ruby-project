@@ -1,0 +1,27 @@
+<h2><%= @word.term %></h2>
+
+<div>
+  <% if @definitions.any? %>
+  <ul>
+    <% @definitions.each do |definition| %>
+    <li><a href="/word/<%= definition.id %>"><%= definition.def %></a></li>
+    <% end %>
+  </ul>
+  <% end %>
+</div>
+
+<div>
+<form method="post" action="/word/<%= @word.id %>">
+  <label for="definition">
+  <input name="definition" id="definition" class="form-control">
+  <button class="btn" type="submit">Add Definition</button>
+</form>
+</div>
+<div>
+  <form action="/word/<%= @word.id %>/update">
+    <button type="submit" class=btn>Edit/Delete Word</button>
+  </form>    
+  <form action="/home">
+    <button type="submit" class=btn>Return to Home</button>
+  </form>
+</div>

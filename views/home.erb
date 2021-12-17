@@ -1,16 +1,17 @@
 <h1>Word Adder</h1>
 <div>
-
+  <h3>Words:</h3>
+</div>
 <div>
   <% if @words.any? %>
   <ul>
     <% @words.each do |word| %>
-    <li><%= word.term %></li>
+    <li><a href="/word/<%= word.id %>"><%= word.term %></a></li>
     <% end %>
   </ul>
   <% end %>
 </div>
-
+<div>
 <form method="post" action="/home">
   <label for="word">
   <input name="word" id="word" class="form-control">

@@ -18,5 +18,33 @@ end
 post('/home') do
   word = Word.new(:term => params[:word], :id => nil)
   word.save
-  redirect '/home'
+  redirect back
 end
+
+get('/word/:id') do
+  @word = Word.find(params[:id].to_i)
+  @definitions = Definition.find_by_word(params[:id].to_i)
+  erb(:word)
+end
+post('/word/:id') do
+  @word = Word.find(params[:id].to_i)
+  @new_definition = Definition.new(:def => params[:definition], :word_id => @word.id, :id => nil)
+  @new_definition.save
+  @definitions = Definition.find_by_word(params[:id].to_i)
+  redirect back
+end
+
+get('/word/:id/update') do
+  @word = Word.find(params[:id])
+  erb(:word_update)
+end
+patch('/word/:id/update') do
+  @word = Word.find(params[:id])
+  redirect back
+end
+# patch('/word/:id/update') do
+#   definition.def = params[:updated_definition]
+#   redirect back
+# end
+
+# delete('/word/:id/')
