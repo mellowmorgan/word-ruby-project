@@ -47,5 +47,8 @@ patch('/word/:id/update') do
   erb(:word)
 end
 
-
-delete('/word/:id/')
+delete('/word/:id/update') do
+  @word = Word.find(params[:id].to_i)
+  @word.delete
+  redirect '/home'
+end
