@@ -18,9 +18,19 @@ describe('#Definition') do
     end
   end
   describe('#find') do
-  it('should return object definition when calling find method id 1') do
-    expect(Definition.find(1)).to(eq(@definition))
+    it('should return object definition when calling find method id 1') do
+      expect(Definition.find(1)).to(eq(@definition))
+    end
   end
-end
-
+  describe('#update') do
+    it('should return new definition when update and def called') do
+      @definition.def = "the quality of being luminous"
+      expect(@definition.def).to(eq("the quality of being luminous"))
+    end
+    it('should save updated item to definitions') do
+      @definition.def = "the quality of being luminous"
+      @definition.save
+      expect(Definition.find(1).def).to(eq("the quality of being luminous"))
+    end
+  end
 end

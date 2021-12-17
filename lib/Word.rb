@@ -22,7 +22,7 @@ class Word
     @@words = {}
     @@total_rows = 0
   end
-  def update(term)
+  def update(new_term)
     @term = term
   end
   def self.find(id)

@@ -24,7 +24,7 @@ class Definition
   def self.find(id)
     @@definitions[id]
   end
-  # def update
-
-  # end
+  def update(new_def)
+    @def = new_def
+  end
 end
