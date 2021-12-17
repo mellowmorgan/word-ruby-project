@@ -1,1 +1,12 @@
-test
+<h2><%= @word.term %></h2>
+
+<form action="/word/<%= @word.id %>/update" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <label for="new_term">Edit word: </label>
+  <input class="form-control" id="new_term" name="new_term">
+  <button class="btn">Update</button>
+</form>
+<form action="/word/<%= @word.id %>"  method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button class="btn">Delete</button>
+</form>

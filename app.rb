@@ -35,16 +35,17 @@ post('/word/:id') do
 end
 
 get('/word/:id/update') do
-  @word = Word.find(params[:id])
+  @word = Word.find(params[:id].to_i)
   erb(:word_update)
 end
-patch('/word/:id/update') do
-  @word = Word.find(params[:id])
-  redirect back
-end
-# patch('/word/:id/update') do
-#   definition.def = params[:updated_definition]
-#   redirect back
-# end
 
-# delete('/word/:id/')
+patch('/word/:id/update') do
+  @word = Word.find(params[:id].to_i)
+  @word.term = params[:new_term]
+  @word.save
+  @definitions =  Definition.find_by_word(params[:id].to_i)
+  erb(:word)
+end
+
+
+delete('/word/:id/')
