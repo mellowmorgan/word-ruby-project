@@ -47,8 +47,31 @@ patch('/word/:id/update') do
   erb(:word)
 end
 
-delete('/word/:id/update') do
+
+patch('/word/:id/update') do
   @word = Word.find(params[:id].to_i)
-  @word.delete
-  redirect '/home'
+  @word.term = params[:new_term]
+  @word.save
+  @definitions =  Definition.find_by_word(params[:id].to_i)
+  erb(:word)
 end
+
+get('/word/:word_id/definition/:def_id/update') do
+  @word = Word.find(params[:word_id].to_i)
+  @definition = Definition.find(params[:def_id].to_i)
+  erb(:definition_update)
+end
+
+# patch('/word/:id/definition/:id/update') do
+#   @word = Word.find(params[:id].to_i)
+#   @word.term = params[:new_term]
+#   @word.save
+#   @definitions =  Definition.find_by_word(params[:id].to_i)
+#   erb(:word)
+# end
+
+# delete('/word/:id/definition/:id/update') do
+#   @word = Word.find(params[:id].to_i)
+#   @word.delete
+#   redirect '/home'
+# end
