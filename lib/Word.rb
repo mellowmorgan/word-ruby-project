@@ -13,7 +13,7 @@ class Word
     (self.term == word_to_compare.term) && (self.id == word_to_compare.id)
   end
   def save
-    @@words[self.id] = Word.new({:term => "luminous", :id => self.id})
+    @@words[self.id] = Word.new({:term => self.term, :id => self.id})
   end
   def self.all
     @@words.values

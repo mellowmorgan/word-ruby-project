@@ -4,7 +4,9 @@ require 'word'
 
 describe('#Word') do 
   before(:each) do
-    @word = Word.new({:term => "luminous", :id => nil})
+    Word.clear
+    @word = Word.new({:term => 'luminous', :id => nil})
+    @word.save
   end
   describe('initialize') do
     it('should create Word class object with unique id and term attribute luminous') do
@@ -12,12 +14,17 @@ describe('#Word') do
     end
   end
   describe('save') do
-    it('should save word to class object of words and all should should one word object') do
-      @word.save
+    it('should save word to class object of words and all should should one word object') do 
       expect(Word.all).to(eq([@word]))
     end
   end
-  # describe('clear') do
-  #   it('should')
-  #   @words
+  describe('find') do
+    it('should save word to class object of words and all should should one word object') do
+      expect(Word.find(1)).to(eq(@word))
+    end
+  end
+  describe('update') do
+    it('should update word term to luminosity') do
+    @words.term='luminosity'
+
 end
