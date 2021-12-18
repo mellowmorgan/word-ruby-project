@@ -22,8 +22,8 @@ This web app allows user to create words and add definitions. Shows knowledge in
 * In terminal, navigate to directory of where you'd like project to be and type 'git clone https://github.com/mellowmorgan/word-ruby-project.git' and hit enter
 * Type 'cd word-ruby-project' and hit enter
 * Type 'bundle install' and hit enter
-* Type ruby app.rb to run program in terminal and hit enter
-* To run tests, type rspec and hit enter
+* Type ruby app.rb to run server and in browser, go to localhost:4567. Now you can use the webpage!
+* To run tests, control+C to exit server and type rspec and hit enter
 * If enter key produces ^M, exit out of script with CTRL+C and in terminal type 'stty sane' hit enter then re-run script (this is a common problem in terminal and stty sane should fix some terminal oddities)
 
 ## Known Bugs
