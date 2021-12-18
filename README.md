@@ -2,6 +2,8 @@
 
 #### Created By Morgan Waites
 
+Add, update, delete words and their definitions!
+
 ## Technologies Used
 
 * ruby
@@ -9,6 +11,7 @@
 * rspec
 * pry
 * capybara
+* sinatra
 
 ## Description
 
@@ -16,7 +19,7 @@ This web app allows user to create words and add definitions. Shows knowledge in
 
 ## Setup/Installation Requirements
 
-* In terminal, navigate to directory of where you'd like project to be and type 'git clone [THIS PROJECT]' and hit enter
+* In terminal, navigate to directory of where you'd like project to be and type 'git clone https://github.com/mellowmorgan/word-ruby-project.git' and hit enter
 * Type 'cd word-ruby-project' and hit enter
 * Type 'bundle install' and hit enter
 * Type ruby app.rb to run program in terminal and hit enter
