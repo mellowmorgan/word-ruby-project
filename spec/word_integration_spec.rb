@@ -49,13 +49,22 @@ describe('update definition', {:type => :feature}) do
     fill_in("definition", :with => "an object-oriented programming language")
     click_on("Add Definition")
     click_on("an object-oriented programming language")
-    # fill_in("new_definition", :with => ("the color of blood")
-    # click_on("Update")
-    # expect(page).to have_content('blood')
+    fill_in("new_def", :with => "the color of blood")
+    click_on("Update")
+    expect(page).to have_content('blood')
   end
 end 
 
 
+describe('delete definition', {:type => :feature}) do
+  it('update definition of red') do
+    visit('/home')
+    click_on("red")
+    click_on("the color of blood")
+    click_on("Delete")
+    expect(page).to have_no_content('blood')
+  end
+end 
 
 
 

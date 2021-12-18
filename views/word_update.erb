@@ -6,7 +6,7 @@
   <input class="form-control" id="new_term" name="new_term">
   <button class="btn">Update</button>
 </form>
-<form action="/word/<%= @word.id %>/update"  method="post">
+<form action="/word/<%= @word.id %>/delete"  method="post">
   <input type="hidden" name="_method" value="delete">
   <button class="btn">Delete</button>
 </form>
