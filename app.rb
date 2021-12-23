@@ -31,7 +31,7 @@ post('/word/:id') do
   @new_definition = Definition.new(:def => params[:definition], :word_id => @word.id, :id => nil)
   @new_definition.save
   @definitions = Definition.find_by_word(params[:id].to_i)
-  redirect back
+  erb(:word)
 end
 
 get('/word/:id/update') do
@@ -52,13 +52,13 @@ delete('/word/:id/delete') do
   redirect '/home'
 end
 
-get('/word/:word_id/definition/:def_id/update') do
+get('/word/:word_id/definition/:def_id') do
   @word = Word.find(params[:word_id].to_i)
   @definition = Definition.find(params[:def_id].to_i)
   erb(:definition_update)
 end
 
-patch('/word/:word_id/definition/:def_id/update') do
+patch('/word/:word_id/definition/:def_id') do
   @definition = Definition.find(params[:def_id].to_i)
   @definition.def = params[:new_def]
   @definition.save
@@ -67,9 +67,10 @@ patch('/word/:word_id/definition/:def_id/update') do
   erb(:word)
 end
 
-delete('/word/:word_id/definition/:def_id/delete') do
+delete('/word/:word_id/definition/:def_id') do
   @definition = Definition.find(params[:def_id].to_i)
   @definition.delete
   @word = Word.find(params[:word_id].to_i)
+  @definitions = Definition.all
   erb(:word)
 end

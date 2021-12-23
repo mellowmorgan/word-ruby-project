@@ -5,7 +5,7 @@
   <h4>Definitions</h4>
   <ul>
     <% @definitions.each do |definition| %>
-    <li><a href="/word/<%= @word.id %>/definition/<%= definition.id %>/update"><%= definition.def %></a></li>
+    <li><a href="/word/<%= @word.id %>/definition/<%= definition.id %>"><%= definition.def %></a></li>
     <% end %>
   </ul>
   <% end %>
@@ -19,7 +19,7 @@
 </form>
 </div>
 <div>
-  <form action="/word/<%= @word.id %>/update">
+  <form action="/word/<%= @word.id %>">
     <button type="submit" class=btn>Edit/Delete Word</button>
   </form>    
   <form action="/home">
