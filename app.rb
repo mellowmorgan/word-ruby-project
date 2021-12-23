@@ -26,6 +26,7 @@ get('/word/:id') do
   @definitions = Definition.find_by_word(params[:id].to_i)
   erb(:word)
 end
+
 post('/word/:id') do
   @word = Word.find(params[:id].to_i)
   @new_definition = Definition.new(:def => params[:definition], :word_id => @word.id, :id => nil)
@@ -71,6 +72,6 @@ delete('/word/:word_id/definition/:def_id') do
   @definition = Definition.find(params[:def_id].to_i)
   @definition.delete
   @word = Word.find(params[:word_id].to_i)
-  @definitions = Definition.all
+  @definitions = Definition.find_by_word(params[:word_id].to_i)
   erb(:word)
 end
